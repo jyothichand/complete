@@ -5,6 +5,11 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
+    stage('list') {
+            steps {
+                sh 'ls'
+            }
+        }
         stage('Build') {
             steps {
                 sh './gradlew build'
