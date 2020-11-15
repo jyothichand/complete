@@ -1,12 +1,22 @@
 pipeline{ 
-	agent any 
+	agent any
 	stages{
 stage ("Build"){
+when {
+expression{
+Branch_Name == 'master' && CODE_CHANGE == true
+}
+}
 			steps { 
 				echo 'building the application..'
 			      }
 			}
 stage ("test"){
+when{
+expression {
+Branch_Name == 'master'
+}
+}
 			steps { 
 				echo 'testing the application..'
 			      }
