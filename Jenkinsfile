@@ -1,10 +1,10 @@
-pipeline{ 
+pipeline{
 	agent any
 	stages{
 stage ("Build"){
 when {
 expression{
-Branch_Name == 'master' && CODE_CHANGE == true
+Branch_Name == 'master'
 }
 }
 			steps { 
