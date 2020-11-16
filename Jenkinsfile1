@@ -1,10 +1,17 @@
-pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
-    }
+pipeline{
+	agent any
+	stages{
+stage ("Build"){
+when {
+expression{
+Branch_Name == 'master'
+}
+}steps {
+		echo 'building the application..'
+		echo "Running ${TAG_DATE} on ${TAG_TIMESTAMP}"
+	   }
+			}
+
+
+		}
 }
