@@ -1,22 +1,14 @@
 pipeline{
-	agent any
+	agent {label 'tester'}
 	stages{
 stage ("Build"){
-when {
-expression{
-Branch_Name == 'master'
-}
-}
+
 			steps { 
 				echo 'building the application..'
 			      }
 			}
 stage ("test"){
-when{
-expression {
-Branch_Name == 'master'
-}
-}
+
 			steps { 
 				echo 'testing the application..'
 			      }
